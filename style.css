@@ -1,0 +1,835 @@
+@charset "utf-8";
+@import url(style.css);
+  *{box-sizing: border-box;
+    font-family: Dot;
+    border-color: rgb(249, 216, 216);
+    margin: 0px;
+    padding: 0px;
+  }
+  @font-face {
+    font-family: 'Dot';
+    src: url('fonts/woff/DotGothic16-Regular.woff') format("woff");
+  }
+  a{text-decoration:none}
+  a:hover{text-decoration:none}
+  header{
+    background-color: blue;
+    border-top:30px ;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: -5px;
+    
+  }
+  .logo{
+    
+    color: white;
+    font-weight: bolder;
+    font-size: 50px;
+    
+    margin-left: 30px;
+  }
+  .btn {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    min-width: 200px;
+    background: #FFFFFF;
+    border: 2px solid yellow;
+    border-radius: 4px;
+    color: #010101;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.5s;
+    padding: 10px 20px;
+    margin-left: 765px;
+    margin-top: 20px;
+}
+.btn span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: yellow;
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+}
+.btn:hover,
+.btn:focus {
+    color: #ffffff;
+}
+.btn:hover span {
+    transform: translateY(0) scale(2);
+}
+.btn span:nth-child(1) {
+    --n: 1;
+}
+.btn span:nth-child(2) {
+    --n: 2;
+}
+.btn span:nth-child(3) {
+    --n: 3;
+}
+.btn span:nth-child(4) {
+    --n: 4;
+}
+  .start{
+    margin-left: 800px;
+    margin-top: 125px;
+    color: white;
+  }
+  .out-block{
+    height: 3000px;
+  }
+  .life{
+    position: fixed;
+    top: 0px;
+    display: flex;
+    left: 700px;
+    z-index: 5;
+    width: 550px;
+    height: 50px;
+    border-radius: 2px;
+    justify-content: flex-end;
+  }
+  
+
+.container {
+  height: 24px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0px;
+  /* margin: 0px 20px; */
+  padding-top: 60px;
+  padding-left: 250px;
+
+}
+.bottom{
+
+
+font-size: 30px;
+}
+.menu{
+padding-left: 10px;
+display: flex; 
+flex-direction: column; 
+justify-content: flex-end;
+align-items: flex-end;
+}
+.menu-item {
+cursor: pointer;
+color: rgb(255, 0, 238);
+padding-top: 10px;
+text-align: right; 
+font-size: 25px;
+font-weight: bolder;
+
+}
+.menu-item:hover{
+color: aqua;
+}
+
+
+.menu-toggle {
+cursor: pointer;
+margin-top: -30px;
+width: 30px;
+height: 30px;
+align-self:flex-end;
+}
+
+
+.me{
+ margin-left: 150px;
+ margin-top: 125px;
+  height: 300px;
+  width:300px;
+  animation: shake 10s linear infinite;
+}
+.flip-card-container {
+ 
+  height:100%;
+  width: 100%;
+  box-sizing: border-box;
+ 
+  
+}
+
+.front, .back{
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  height:100%;
+  width:100%;
+}
+.front{
+ 
+  font-size: 40px;
+  background-color: #666666;
+  color: #dddddd;
+}
+
+.back{
+  font-size: 40px;
+}
+
+.write{
+  position: absolute;
+  z-index: 5;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+}
+
+.me{
+  perspective: 1000px; 
+}
+.flip-card-container{
+  
+  position: relative;
+  
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.me:hover .flip-card-container{
+  transform: rotateY(180deg);
+}
+.front{
+  
+  position: absolute;
+  
+  backface-visibility: hidden;
+}
+
+.back{
+  
+  position: absolute;
+  
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+@keyframes hue {
+  from {
+     filter: hue-rotate(0);
+  }
+
+  to {
+     filter: hue-rotate(-360deg);
+  }
+}
+.special{
+  cursor:help;
+  font-size: 20px;
+  color: blue;
+  margin-top: 100px;
+  margin-left: 70px;
+  white-space:nowrap;
+}
+.rainbow-text {
+  display: inline-block;
+  position: relative;
+  font-weight: 500;
+
+  color: transparent;
+  animation: hue 1.5s linear infinite;
+  background-image: linear-gradient(to right bottom, rgb(76, 0, 255), rgb(255,128,0), rgb(255,255,0), rgb(0,255,0), rgb(0,255,128), rgb(0,255,255), rgb(0,128,255), rgb(0,0,255), rgb(128,0,255), rgb(255,0,255), rgb(255,0,128));
+  -webkit-background-clip: text;
+}
+.mypart{
+
+  padding: 0px 30px;
+  margin-top: -500px;
+  font-size: 35px;
+  margin-left: 650px;
+  
+}
+.t1{
+  padding-top: 0px;
+  margin-top: 0pxs;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 40px;
+}
+
+.t2{
+font-size: 40px;
+padding-top: 110px;
+text-align: center;
+color: rgb(255, 255, 255);
+}
+.b1{
+margin-left: 185px;
+margin-top: -50px;
+font-size: 25px;
+color: white;
+}
+.b2{
+margin-left: 800px;
+padding-left: -300px;
+margin-top: -3 0px;
+font-size: 25px;
+color: white;
+}
+.p1{
+  
+  color: yellow;
+  line-height: 5px;
+  padding-left: 80px;
+  padding-top: 4px;
+  font-size: larger;
+  font-weight: bolder;
+  animation: shake 30s linear infinite;
+  margin: 0;
+  
+}
+.p2{
+  color: yellow;
+  line-height: 5px;
+
+  padding-top: 28px;
+  padding-left: 80px;
+  font-size: larger;
+  font-weight: bolder;
+  animation: shake 30s linear infinite;
+  
+}
+.p3{
+  color: yellow;
+  line-height: 5px;
+  padding-top: 38px;
+  padding-left: 80px;
+  font-size: larger;
+  font-weight: bolder;
+  animation: shake 30s linear infinite;
+  
+}
+.p4{
+  color: yellow;
+  line-height: 5px;
+  padding-top: 48px;
+  padding-left: 80px;
+  font-size: larger;
+  font-weight: bolder;
+  animation: shake 30s linear infinite;
+  
+}
+  
+  .img1 {
+      width: 100%;
+      height: 700px;
+      
+      
+  }
+  .img2 {
+      width: 100%;
+      height: 755px;
+      background-image: url("image/2.png");
+      background-size: cover;
+      z-index: -5;
+  }
+
+  .img4 {
+      width: 100%;
+      height: 700px;
+      z-index: 5;
+      
+  }
+  
+
+  .bar1 {
+      margin-top: 35px;
+      margin-left: 80px;
+      width: 100%;
+      height: 30px; 
+      background-color: white;
+      animation-duration: 5s;
+      animation-fill-mode: forwards;
+      border-radius: 15px;
+  }
+
+  .bar2 {
+      margin-top:40px;
+      margin-left: 80px;
+      width: 100%;
+      height: 30px;
+      background-color: white;
+      animation-duration: 5s;
+      animation-fill-mode: forwards;
+      border-radius: 15px;
+  }
+
+  .bar3 {
+      margin-top: 45px;
+      margin-left: 80px;
+      width: 100%;
+      height: 30px;
+      background-color: white;
+      animation-duration: 5s;
+      animation-fill-mode: forwards;
+      border-radius: 15px;
+  }
+
+  .bar4 {
+      margin-top: 50px;
+      margin-left: 80px;
+      width: 100%;
+      height: 30px;
+      background-color: white;
+      animation-duration: 5s;
+      animation-fill-mode: forwards;
+      border-radius: 15px;
+  }
+
+  @keyframes python {
+      from { width: 0; }
+      to { width: 15%; }
+  }
+  @keyframes java {
+      from { width: 0; }
+      to { width: 20%; }
+  }
+
+  @keyframes html {
+      from { width: 0; }
+      to { width: 35%; }
+  }
+
+  @keyframes css {
+      from { width: 0; }
+      to { width: 30%; }
+  }
+  .icon1{
+      
+      margin-bottom: 0px;
+      margin-left: 50px;
+      width: 55px;
+      height: 55px;
+      animation: shake-freeze 2s linear infinite;
+    
+  }
+  .icon2{
+    
+      margin-top: 50px;
+      margin-left: 50px;
+      width: 55px;
+      height: 55px;
+      animation: shake-freeze 2s linear infinite
+  }
+  .icon3{
+    
+      margin-top: 25px;
+      margin-left: 50px;
+      width: 50px;
+      height: 50px;
+      animation: shake-freeze 2s linear infinite
+  }
+  .iiicon{
+    margin-left: 650px;
+    margin-top: 50px;
+  }
+          @keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+  }
+  .shake {
+display: inherit;
+transform-origin: center center; }
+
+.shake-freeze,
+.shake-constant.shake-constant--hover:hover,
+.shake-trigger:hover .shake-constant.shake-constant--hover {
+animation-play-state: paused; }
+
+.shake-freeze:hover,
+.shake-trigger:hover .shake-freeze, .shake:hover,
+.shake-trigger:hover .shake {
+animation-play-state: running; }
+
+@keyframes shake {
+2% {
+  transform: translate(-0.5px, 2.5px) rotate(-0.5deg); }
+4% {
+  transform: translate(0.5px, -1.5px) rotate(-0.5deg); }
+6% {
+  transform: translate(1.5px, -1.5px) rotate(1.5deg); }
+8% {
+  transform: translate(0.5px, 2.5px) rotate(-0.5deg); }
+10% {
+  transform: translate(-1.5px, 2.5px) rotate(1.5deg); }
+12% {
+  transform: translate(2.5px, -0.5px) rotate(-0.5deg); }
+14% {
+  transform: translate(2.5px, 2.5px) rotate(1.5deg); }
+16% {
+  transform: translate(1.5px, 1.5px) rotate(0.5deg); }
+18% {
+  transform: translate(0.5px, 2.5px) rotate(1.5deg); }
+20% {
+  transform: translate(1.5px, -1.5px) rotate(-0.5deg); }
+22% {
+  transform: translate(0.5px, 1.5px) rotate(1.5deg); }
+24% {
+  transform: translate(-0.5px, 1.5px) rotate(0.5deg); }
+26% {
+  transform: translate(-1.5px, -1.5px) rotate(0.5deg); }
+28% {
+  transform: translate(1.5px, 2.5px) rotate(1.5deg); }
+30% {
+  transform: translate(2.5px, -1.5px) rotate(1.5deg); }
+32% {
+  transform: translate(1.5px, 1.5px) rotate(1.5deg); }
+34% {
+  transform: translate(2.5px, 0.5px) rotate(-0.5deg); }
+36% {
+  transform: translate(2.5px, -0.5px) rotate(-0.5deg); }
+38% {
+  transform: translate(0.5px, 0.5px) rotate(0.5deg); }
+40% {
+  transform: translate(1.5px, -1.5px) rotate(1.5deg); }
+42% {
+  transform: translate(0.5px, -0.5px) rotate(0.5deg); }
+44% {
+  transform: translate(-0.5px, -0.5px) rotate(-0.5deg); }
+46% {
+  transform: translate(1.5px, 2.5px) rotate(-0.5deg); }
+48% {
+  transform: translate(2.5px, 2.5px) rotate(1.5deg); }
+50% {
+  transform: translate(0.5px, 2.5px) rotate(1.5deg); }
+52% {
+  transform: translate(1.5px, -1.5px) rotate(1.5deg); }
+54% {
+  transform: translate(0.5px, 0.5px) rotate(1.5deg); }
+56% {
+  transform: translate(1.5px, 1.5px) rotate(0.5deg); }
+58% {
+  transform: translate(0.5px, 0.5px) rotate(1.5deg); }
+60% {
+  transform: translate(-0.5px, 0.5px) rotate(-0.5deg); }
+62% {
+  transform: translate(2.5px, -1.5px) rotate(1.5deg); }
+64% {
+  transform: translate(2.5px, -0.5px) rotate(0.5deg); }
+66% {
+  transform: translate(0.5px, 0.5px) rotate(1.5deg); }
+68% {
+  transform: translate(-1.5px, -0.5px) rotate(0.5deg); }
+70% {
+  transform: translate(2.5px, 0.5px) rotate(-0.5deg); }
+72% {
+  transform: translate(1.5px, 0.5px) rotate(1.5deg); }
+74% {
+  transform: translate(0.5px, 0.5px) rotate(1.5deg); }
+76% {
+  transform: translate(-1.5px, -0.5px) rotate(0.5deg); }
+78% {
+  transform: translate(-1.5px, -1.5px) rotate(-0.5deg); }
+80% {
+  transform: translate(-0.5px, -0.5px) rotate(0.5deg); }
+82% {
+  transform: translate(-0.5px, 1.5px) rotate(1.5deg); }
+84% {
+  transform: translate(-1.5px, 2.5px) rotate(-0.5deg); }
+86% {
+  transform: translate(-1.5px, -0.5px) rotate(-0.5deg); }
+88% {
+  transform: translate(2.5px, -0.5px) rotate(-0.5deg); }
+90% {
+  transform: translate(2.5px, -1.5px) rotate(-0.5deg); }
+92% {
+  transform: translate(2.5px, 0.5px) rotate(-0.5deg); }
+94% {
+  transform: translate(0.5px, 1.5px) rotate(-0.5deg); }
+96% {
+  transform: translate(1.5px, 2.5px) rotate(0.5deg); }
+98% {
+  transform: translate(2.5px, -0.5px) rotate(1.5deg); }
+0%, 100% {
+  transform: translate(0, 0) rotate(0); } }
+
+.shake:hover,
+.shake-trigger:hover .shake, .shake.shake-freeze, .shake.shake-constant {
+animation-name: shake;
+animation-duration: 100ms;
+animation-timing-function: ease-in-out;
+animation-iteration-count: infinite; }
+
+.circle{
+  display: inline-flex;
+  margin: 13px;
+  --width: 150px;
+  --percent: var(--papaya);
+  --deg: calc(360deg * calc(var(--percent) / 100));
+  width: var(--width);
+  height: var(--width);
+  border-radius: 50%;
+  background-image: conic-gradient(rgb(247, 0, 255) var(--deg), #ccc var(--deg));
+  position: relative;
+  animation: fillAnimation 2s linear forwards;
+  
+}
+.circle-inside{
+  --bar-width: 30px;
+  position: absolute;
+  display: flex;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #eee;
+  width: calc(var(--width) - var(--bar-width));
+  height: calc(var(--width) - var(--bar-width));
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+
+  
+}
+.card{
+  padding: 20px;
+  margin: 20px 10px;
+  margin-top: -650px;   
+  margin-left: 650px;    
+  width: 400px;
+  height: 400px; 
+}
+
+.cp1{
+  font-size: 20px;
+  padding-left: 65px;
+  padding-top: 50px;
+  color: white;
+}
+.cp2{
+  font-size: 20px;
+  padding-left: 45px;
+  
+  color: white;
+}
+.cp3{
+  font-size: 20px;
+  margin-left: 55px;
+  margin-top: 30px;
+  color: white;
+  width: 50px;
+  padding-top: 15px;
+  padding-left: 3px;
+  animation: shake 5s linear infinite;
+}
+.cp4{
+  display: inline-block;
+  font-size: 20px;
+  margin-left: 58px;
+  color: white;
+  margin-top: 20px;
+  padding-top: 5px;
+  align-self:center;
+  
+}
+.cc3{
+  margin-top: -490px;
+  margin-left: 280px;
+}
+.cc4{
+  margin-left: 280px;
+  margin-top: -23px;
+}
+
+@keyframes fillAnimation {
+  0% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: 471;
+    }
+}
+.act{
+color: rgb(93, 93, 93);
+font-size: 30px;
+margin-left: 40px;
+font-weight: bolder;
+z-index: 5;
+
+}
+.Experiences{
+margin-top:300px ;
+}
+.ar{
+margin-top: 20px;
+padding: 20px 0px;
+} 
+.h51{
+
+margin-left: 430px;
+align-self:center;
+margin-top: -20px;
+font-size: 25px;
+}
+.h52{
+align-self:center;
+margin-left: 550px;
+margin-top: 20px;
+
+font-size: 25px;
+}
+.h53{
+align-self:center;
+margin-left: 550px;
+margin-top: 0px;
+font-size: 25px;
+}
+dd{
+background-color: #66666676;
+margin: 2px 2px 2px 2px;
+}
+.et1{
+  text-indent: 2em;
+  /* background-color: rgba(0, 0, 255, 0.5); */
+  font-size: 25px;
+  line-height: 50px;
+  width: 800px;
+  height: 200px;
+  margin-left: 420px;
+  margin-top: -250px;
+  
+}
+.i1{
+
+    width: 375px; 
+    height: 282px;  
+    margin-left: 30px;   
+    margin-top: 20px; 
+    transition: box-shadow 0.3s ease;
+}
+.i1:hover{
+  box-shadow: 10px 10px yellow;
+  animation: shake 5s linear infinite;
+}
+.et2{
+  text-indent: 2em;
+  /* background-color: rgb(247, 0, 255); */
+  font-size: 25px;
+  line-height: 50px;
+  width: 800px;
+  height: 250px;
+  margin-left: 30px;
+  margin-top: -250px;
+}
+video{
+  width: 375px; 
+  height: 282px;  
+    margin-left: 850px;
+    margin-top: 25px;
+    transition: box-shadow 0.3s ease;
+}
+video:hover{
+  box-shadow: 8px 8px greenyellow;
+  animation: shake 5s linear infinite;
+}
+.et3{
+  text-indent: 2em;
+  /* background-color: #08ff0880; */
+  font-size: 25px;
+  line-height: 50px;
+  width: 800px;
+  height: 200px;
+  margin-left: 420px;
+  margin-top: -254px;
+}
+.i2{
+  width: 375px; 
+  height: 282px;  
+  margin-top: 21px;
+  margin-left: 30px;
+  transition: box-shadow 0.3s ease;
+}
+.i2:hover{
+  box-shadow: 10px 10px #08ff08;
+  animation: shake 5s linear infinite;
+}
+.et4{
+  text-indent: 2em;
+  /* background-color: yellow; */
+  font-size: 25px;
+  line-height: 50px;
+  width: 800px;
+  height: 250px;
+  margin-left: 30px;
+  margin-top: -260px;
+}
+.i3{
+  width: 375px; 
+  height: 282px;  
+  margin-top: 21px;
+  margin-left: 850px;
+  transition: box-shadow 0.3s ease;
+}
+.i3:hover{
+  box-shadow: 10px 10px blue;
+  animation: shake 5s linear infinite;
+}
+
+.move{
+  display: block;
+  margin-top: 30px;
+}
+.work{
+  margin-top:50px ;
+  margin-left: 40px;
+  font-size: 30px;
+  color: rgb(93, 93, 93);
+  font-weight: bolder;
+  z-index: 5;
+}
+.sec1{
+  background-color: rgba(247, 0, 255, 0.5);
+  padding: 20px 20px;
+  margin: 20px 30px;
+  border:rgba(247, 0, 255, 0.5) ;
+  float: left;
+}
+.pizza{
+  font-size: 25px;
+ 
+}
+.sec2{
+  background-color: rgba(255, 255, 0, 0.5);
+  padding: 20px 20px;
+  margin: 20px 30px;
+  float: left;
+}
+.sec3{
+  background-color: #00ff0070;
+  padding: 20px 20px ;
+  margin: 20px 30px;
+  float: left;
+}
+html, body {
+  height: 100%; /*外層高度100%*/
+  margin: 0;
+}
+footer{
+  height: 50px;
+  background-color: rgb(0, 0, 255);
+  color: rgb(255, 254, 254);
+  text-align: center;
+  margin-bottom: 0px;
+}
