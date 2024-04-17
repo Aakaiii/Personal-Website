@@ -1,0 +1,964 @@
+@charset "utf-8";
+@import url(style.css);
+
+* {
+  font-family: Dot;
+  border-color: rgb(249, 216, 216);
+  margin: 0px;
+  padding: 0px;
+}
+
+/* 更換字體 */
+@font-face {
+  font-family: 'Dot';
+  src: url('fonts/DotGothic16-Regular.woff') format("woff");
+}
+
+a {
+  text-decoration: none
+}
+
+a:hover {
+  text-decoration: none
+}
+
+header {
+  background-color: blue;
+  border-top: 30px;
+  width: 100%;
+  height: 100%;
+  margin: 0%;
+  padding: 5%;
+
+}
+
+.logo {
+  color: white;
+  font-weight: bolder;
+  font-size: 50px;
+  margin-left: 30px;
+}
+
+/* 設定了按鈕的基本外觀和行為 */
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  min-width: 200px;
+  background: #FFFFFF;
+  border: 2px solid yellow;
+  border-radius: 4px;
+  color: #010101;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.5s;
+  padding: 10px 20px;
+  margin-left: 61%;
+  margin-top: 2%;
+}
+
+/* 定義了按鈕內的圓形元素的外觀和動畫效果 */
+.btn span {
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  background-color: yellow;
+  transform: translateY(150%);
+  border-radius: 50%;
+  left: calc((var(--n) - 1) * 25%);
+  transition: 0.5s;
+  transition-delay: calc((var(--n) - 1) * 0.1s);
+  z-index: -1;
+}
+
+/* 設置了當滑鼠懸停或聚焦在按鈕上時的外觀變化 */
+.btn:hover,
+.btn:focus {
+  color: #ff9900;
+}
+
+/* 當滑鼠懸停在按鈕上時，圓形元素的動畫效果 */
+.btn:hover span {
+  transform: translateY(0) scale(2);
+}
+
+/* 為每個圓形指定不同的動畫延遲時間 */
+.btn span:nth-child(1) {
+  --n: 1;
+}
+
+.btn span:nth-child(2) {
+  --n: 2;
+}
+
+.btn span:nth-child(3) {
+  --n: 3;
+}
+
+.btn span:nth-child(4) {
+  --n: 4;
+}
+
+.start {
+  margin-left: 65%;
+  margin-top: 125px;
+  color: white;
+}
+
+.out-block {
+  height: 3000px;
+}
+
+/* 定位menu */
+.life {
+  position: fixed;
+  top: 0px;
+  display: flex;
+  left: 55%;
+  z-index: 5;
+  width: 550px;
+  height: 50px;
+  border-radius: 2px;
+  justify-content: flex-end;
+}
+
+/* 容納menu的彈性容器 */
+.container {
+  height: 24px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0px;
+  /* margin: 0px 20px; */
+  padding-top: 60px;
+  padding-left: 250px;
+
+}
+
+.bottom {
+  font-size: 30px;
+}
+
+/* 定位彈出菜單 */
+.menu {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.menu-item {
+  cursor: pointer;
+  color: rgb(255, 0, 238);
+  padding-top: 10px;
+  text-align: right;
+  font-size: 25px;
+  font-weight: bolder;
+
+}
+
+.menu-item:hover {
+  color: aqua;
+}
+
+/* 菜單切換按鈕的外觀和行 */
+.menu-toggle {
+  cursor: pointer;
+  margin-top: -30px;
+  width: 30px;
+  height: 30px;
+  align-self: flex-end;
+}
+
+
+.me {
+  margin-left: 150px;
+  margin-top: 125px;
+  height: 300px;
+  width: 300px;
+  animation: shake 10s linear infinite;
+}
+
+/* 設置翻轉卡片的容器 */
+.flip-card-container {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 設置卡片的正面和背面 */
+.front,
+.back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.front {
+  font-size: 40px;
+  background-color: #666666;
+  color: #dddddd;
+}
+
+.back {
+  font-size: 40px;
+}
+
+.write {
+  position: absolute;
+  justify-self:center;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+}
+
+.me {
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.flip-card-container {
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.me:hover .flip-card-container {
+  transform: rotateY(180deg);
+}
+
+.front {
+  /* 與背面重疊 */
+  position: absolute;
+  /* 隱藏卡片的正面 */
+  backface-visibility: hidden;
+}
+
+.back {
+  /* 與前面重疊 */
+  position: absolute;
+  transform: rotateY(180deg);
+  /* 隱藏卡片的背面 */
+  backface-visibility: hidden;
+}
+
+.special {
+  cursor: help;
+  font-size: 20px;
+  color: blue;
+  margin-top: 100px;
+  margin-left: 70px;
+  white-space: nowrap;
+}
+
+/* 設置彩虹文字效果 */
+.rainbow-text {
+  /* display: inline-block;
+  position: relative; */
+  font-weight: 500;
+  color: transparent;
+  animation: hue 1.5s linear infinite;
+  background-image: linear-gradient(to right bottom, rgb(76, 0, 255), rgb(255, 128, 0), rgb(255, 255, 0), rgb(0, 255, 0), rgb(0, 255, 128), rgb(0, 255, 255), rgb(0, 128, 255), rgb(0, 0, 255), rgb(128, 0, 255), rgb(255, 0, 255), rgb(255, 0, 128));
+  -webkit-background-clip: text;
+}
+
+/* 改變元素的色調 */
+@keyframes hue {
+  from {
+    filter: hue-rotate(0);
+  }
+
+  to {
+    filter: hue-rotate(-360deg);
+  }
+}
+.part-1{
+padding:1%
+}
+
+.part-2{
+padding: 5% 5%;
+}
+
+.mypart {
+  padding: 0px 30px;
+  font-size: 35px;
+}
+
+.t1 {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 40px;
+}
+
+.t2 {
+  font-size: 40px;
+  padding-top: 110px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+.b1 {
+  margin-left: 18%;
+  margin-top: -3%;
+  font-size: 25px;
+  color: white;
+}
+
+.b2 {
+  margin-top: -3%;
+  font-size: 25px;
+  color: white;
+}
+
+.p1 {
+  color: yellow;
+  line-height: 5px;
+  padding-left: 8%;
+  padding-top: 2%;
+  font-size: larger;
+  font-weight: bolder;
+  animation: shake 30s linear infinite;
+  margin: 0;
+
+}
+
+.p2 {
+  color: yellow;
+  line-height: 5px;
+  padding-top: 3%;
+  padding-left: 8%;
+  font-size: larger;
+  font-weight: bolder;
+  animation: shake 30s linear infinite;
+
+}
+
+.p3 {
+  color: yellow;
+  line-height: 5px;
+  padding-top: 4%;
+  padding-left: 8%;
+  font-size: larger;
+  font-weight: bolder;
+  animation: shake 30s linear infinite;
+
+}
+
+.p4 {
+  color: yellow;
+  line-height: 5px;
+  padding-top: 3%;
+  padding-left: 8%;
+  font-size: larger;
+  font-weight: bolder;
+  animation: shake 30s linear infinite;
+
+}
+
+.img1 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.img2 {
+  width: 100%;
+  height: 755px;
+  background-image: url("image/2.png");
+  background-size: cover;
+  z-index: -5;
+}
+.img3{
+  width: 100%;
+  height: auto;
+}
+.img4 {
+  width: 100%;
+  height: auto;
+}
+
+
+.bar1 {
+  margin-top: 2%;
+  margin-left: 7%;
+  width: 100%;
+  height: 6%;
+  background-color: white;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  border-radius: 15px;
+}
+
+.bar2 {
+  margin-top: 3%;
+  margin-left: 7%;
+  width: 100%;
+  height: 6%;
+  background-color: white;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  border-radius: 15px;
+}
+
+.bar3 {
+  margin-top: 4%;
+  margin-left: 7%;
+  width: 100%;
+  height: 6%;
+  background-color: white;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  border-radius: 15px;
+}
+
+.bar4 {
+  margin-top: 5%;
+  margin-left: 7%;
+  width: 100%;
+  height: 6%;
+  background-color: white;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  border-radius: 15px;
+}
+
+/* 以長條寬度的控制來製造出長條圖成長的感覺 */
+@keyframes python {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 30%;
+  }
+}
+
+@keyframes java {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 40%;
+  }
+}
+
+@keyframes html {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 70%;
+  }
+}
+
+@keyframes css {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 60%;
+  }
+}
+
+.icon1 {
+  height: 5vw;
+  width: 5vw;
+  animation: shake-freeze 2s linear infinite;
+
+}
+
+.icon2 {
+  height: 5vw;
+  width: 5vw;
+  animation: shake-freeze 2s linear infinite
+}
+
+.icon3 {
+  height: 5vw;
+  width: 5vw;
+  animation: shake-freeze 2s linear infinite
+}
+
+.iiicon {
+  display: flex;
+  justify-content: center;
+  padding: 2% 2%;
+  /* padding: 0 2%; */
+
+}
+
+/* 以旋轉5度的方式來製造出傾斜搖晃的感覺 */
+@keyframes tilt-shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(5deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.shake {
+  display: inherit;
+  transform-origin: center center;
+}
+
+/* 鼠標離開的時候得不會動 */
+.shake-freeze,
+.shake-constant.shake-constant--hover:hover,
+.shake-trigger:hover .shake-constant.shake-constant--hover {
+  animation-play-state: paused;
+}
+
+/* 鼠標觸碰時會動 */
+.shake-freeze:hover,
+.shake-trigger:hover .shake-freeze,
+.shake:hover,
+.shake-trigger:hover .shake {
+  animation-play-state: running;
+}
+
+/* 這個動畫是透過連續且短暫讓圖片移動造成有抖動的效果 */
+@keyframes shake {
+  2% {
+    transform: translate(-0.5px, 2.5px) rotate(-0.5deg);
+  }
+
+  4% {
+    transform: translate(0.5px, -1.5px) rotate(-0.5deg);
+  }
+
+  6% {
+    transform: translate(1.5px, -1.5px) rotate(1.5deg);
+  }
+
+  8% {
+    transform: translate(0.5px, 2.5px) rotate(-0.5deg);
+  }
+
+  10% {
+    transform: translate(-1.5px, 2.5px) rotate(1.5deg);
+  }
+
+  12% {
+    transform: translate(2.5px, -0.5px) rotate(-0.5deg);
+  }
+
+  14% {
+    transform: translate(2.5px, 2.5px) rotate(1.5deg);
+  }
+
+  16% {
+    transform: translate(1.5px, 1.5px) rotate(0.5deg);
+  }
+
+  18% {
+    transform: translate(0.5px, 2.5px) rotate(1.5deg);
+  }
+
+  20% {
+    transform: translate(1.5px, -1.5px) rotate(-0.5deg);
+  }
+
+  22% {
+    transform: translate(0.5px, 1.5px) rotate(1.5deg);
+  }
+
+  24% {
+    transform: translate(-0.5px, 1.5px) rotate(0.5deg);
+  }
+
+  26% {
+    transform: translate(-1.5px, -1.5px) rotate(0.5deg);
+  }
+
+  28% {
+    transform: translate(1.5px, 2.5px) rotate(1.5deg);
+  }
+
+  30% {
+    transform: translate(2.5px, -1.5px) rotate(1.5deg);
+  }
+
+  32% {
+    transform: translate(1.5px, 1.5px) rotate(1.5deg);
+  }
+
+  34% {
+    transform: translate(2.5px, 0.5px) rotate(-0.5deg);
+  }
+
+  36% {
+    transform: translate(2.5px, -0.5px) rotate(-0.5deg);
+  }
+
+  38% {
+    transform: translate(0.5px, 0.5px) rotate(0.5deg);
+  }
+
+  40% {
+    transform: translate(1.5px, -1.5px) rotate(1.5deg);
+  }
+
+  42% {
+    transform: translate(0.5px, -0.5px) rotate(0.5deg);
+  }
+
+  44% {
+    transform: translate(-0.5px, -0.5px) rotate(-0.5deg);
+  }
+
+  46% {
+    transform: translate(1.5px, 2.5px) rotate(-0.5deg);
+  }
+
+  48% {
+    transform: translate(2.5px, 2.5px) rotate(1.5deg);
+  }
+
+  50% {
+    transform: translate(0.5px, 2.5px) rotate(1.5deg);
+  }
+
+  52% {
+    transform: translate(1.5px, -1.5px) rotate(1.5deg);
+  }
+
+  54% {
+    transform: translate(0.5px, 0.5px) rotate(1.5deg);
+  }
+
+  56% {
+    transform: translate(1.5px, 1.5px) rotate(0.5deg);
+  }
+
+  58% {
+    transform: translate(0.5px, 0.5px) rotate(1.5deg);
+  }
+
+  60% {
+    transform: translate(-0.5px, 0.5px) rotate(-0.5deg);
+  }
+
+  62% {
+    transform: translate(2.5px, -1.5px) rotate(1.5deg);
+  }
+
+  64% {
+    transform: translate(2.5px, -0.5px) rotate(0.5deg);
+  }
+
+  66% {
+    transform: translate(0.5px, 0.5px) rotate(1.5deg);
+  }
+
+  68% {
+    transform: translate(-1.5px, -0.5px) rotate(0.5deg);
+  }
+
+  70% {
+    transform: translate(2.5px, 0.5px) rotate(-0.5deg);
+  }
+
+  72% {
+    transform: translate(1.5px, 0.5px) rotate(1.5deg);
+  }
+
+  74% {
+    transform: translate(0.5px, 0.5px) rotate(1.5deg);
+  }
+
+  76% {
+    transform: translate(-1.5px, -0.5px) rotate(0.5deg);
+  }
+
+  78% {
+    transform: translate(-1.5px, -1.5px) rotate(-0.5deg);
+  }
+
+  80% {
+    transform: translate(-0.5px, -0.5px) rotate(0.5deg);
+  }
+
+  82% {
+    transform: translate(-0.5px, 1.5px) rotate(1.5deg);
+  }
+
+  84% {
+    transform: translate(-1.5px, 2.5px) rotate(-0.5deg);
+  }
+
+  86% {
+    transform: translate(-1.5px, -0.5px) rotate(-0.5deg);
+  }
+
+  88% {
+    transform: translate(2.5px, -0.5px) rotate(-0.5deg);
+  }
+
+  90% {
+    transform: translate(2.5px, -1.5px) rotate(-0.5deg);
+  }
+
+  92% {
+    transform: translate(2.5px, 0.5px) rotate(-0.5deg);
+  }
+
+  94% {
+    transform: translate(0.5px, 1.5px) rotate(-0.5deg);
+  }
+
+  96% {
+    transform: translate(1.5px, 2.5px) rotate(0.5deg);
+  }
+
+  98% {
+    transform: translate(2.5px, -0.5px) rotate(1.5deg);
+  }
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+/* 在不同的條件下應用震動效果 */
+.shake:hover,
+.shake-trigger:hover .shake,
+.shake.shake-freeze,
+.shake.shake-constant {
+  animation-name: shake;
+  animation-duration: 100ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* 設置圓形進度條的外觀 */
+.circle {
+  display: inline-flex;
+  margin: 13px;
+  --width: 150px;
+  --percent: var(--papaya);
+  --deg: calc(360deg * calc(var(--percent) / 100));
+  width: var(--width);
+  height: var(--width);
+  border-radius: 50%;
+  background-image: conic-gradient(rgb(247, 0, 255) var(--deg), #ccc var(--deg));
+  position: relative;
+  animation: fillAnimation 2s linear forwards;
+
+}
+
+/* 圓形進度條內部的內容 */
+.circle-inside {
+  --bar-width: 30px;
+  position: absolute;
+  display: flex;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #eee;
+  width: calc(var(--width) - var(--bar-width));
+  height: calc(var(--width) - var(--bar-width));
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.it1 {
+  padding: 2% 2% 2% 2%;
+  width: 50%;
+}
+
+
+.it2 {
+  width: 40%;
+  display: flex;
+  
+}
+
+.cc1,
+.cc2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+ 
+}
+.cc1{
+  margin-right: 5%;
+}
+
+
+
+.cp1 {
+  font-size: 20px;
+  color: white;
+}
+
+.cp2 {
+  font-size: 20px;
+  color: white;
+  
+}
+
+.cp3 {
+  font-size: 20px;
+  color: white;
+  animation: shake 5s linear infinite;
+}
+
+.cp4 {
+  font-size: 20px;
+  color: white;
+}
+
+.act {
+  color: rgb(93, 93, 93);
+  font-size: 30px;
+  margin-left: 40px;
+  font-weight: bolder;
+  z-index: 5;
+
+}
+
+.array {
+  width: 100%;
+  margin-top: 0%;
+  padding: 5% 2%;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3%;
+}
+
+.t3 {
+  text-align: center;
+  font-size: 3vw;
+  margin-left: 0%;
+  margin-top: 15%;
+}
+
+.ph {
+  width: 100%;
+  height: 100%;
+}
+
+video{
+  width: 100%;
+  height: 100%;
+}
+
+.txt {
+  max-width: 50%;
+  min-height: 50%;
+  background-color: #66666680;
+  font-size: 1.25vw;
+  padding: 2% 2%;
+}
+
+video:hover{
+  animation: shake 5s linear infinite;
+}
+
+.ph:hover {
+  animation: shake 5s linear infinite;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 2% 2%;
+}
+
+.move {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+
+.work {
+  margin-top: 130%;
+  font-size: 2vw;
+  color: rgb(93, 93, 93);
+  font-weight: bolder;
+  padding: 2% 2%;
+}
+
+.sec1 {
+  background-color: rgba(247, 0, 255, 0.5);
+  padding: 20px 20px;
+  flex-grow: 1;
+
+}
+
+.pizza {
+  font-size: 25px;
+}
+
+.sec2 {
+  background-color: rgba(255, 255, 0, 0.5);
+  padding: 20px 20px;
+  flex-grow: 1;
+}
+
+.sec3 {
+  background-color: #00ff0070;
+  padding: 20px 20px;
+  flex-grow: 1;
+}
+
+html,
+body {
+  height: 100%;
+  /*外層高度100%*/
+  margin: 0;
+}
+
+footer {
+  height: 50px;
+  background-color: rgb(0, 0, 255);
+  color: rgb(255, 254, 254);
+  text-align: center;
+  margin-bottom: 0%;
+}
